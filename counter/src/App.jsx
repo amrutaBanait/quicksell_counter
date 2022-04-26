@@ -7,6 +7,9 @@ const App = () => {
  
   let [count, setCount] = useState(0);
 
+  const handleChange = (e)=>{
+    setCount(e.target.value)
+  }
   const IncNum = () => {
     setCount(count + 1);
   };
@@ -24,7 +27,7 @@ const App = () => {
         <button className="btn" onClick={DncNum}>
           -
         </button>
-        <input type="number" className="heading1" value={count}/>
+        <input className="heading1" value={count} onChange={handleChange}/>
         <button className="btn1" onClick={IncNum}>
           +
         </button>
