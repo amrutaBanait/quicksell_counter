@@ -19,7 +19,7 @@ const App = () => {
 
   return (
    <>
-      <h1 className="heading">Hello I am Counter</h1>
+      <h1 className="heading"></h1>
 
       <div className="container">
         <button className="btn" onClick={DncNum}>
