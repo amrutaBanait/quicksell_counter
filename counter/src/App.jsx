@@ -8,43 +8,13 @@ const App = () => {
 
   let [count, setCount] = useState(0);
 
-  const getcount = async () => {
-    const response = await fetch(
-      "https://interview-8e4c5-default-rtdb.firebaseio.com/front-end/counter1.json"
-    );
-
-    const data = await response.json();
-    console.log(data);
-    const number = 1;
-    setCount(number);
+  const IncNum = () => {
+    setCount(count + 1);
   };
 
-  useEffect(() => {
-    getcount();
-  }, []);
-
-const changeCountInInputField = (event) => {
-  const currValue = parseInt(event.target.value);
-  if(!isNaN(currValue)){
-    setCount(currValue);
-  }
-
-  console.log(event.target.value);
-  
-
-
-  
- 
-};
-
-  const IncNum = (event)=>{
-    setCount(event.target.valuet+1);
-
-  }
-
-  const DecNum = ()=>{
-    setCount(count-1);
-  }
+  const DncNum = () => {
+    setCount(count - 1);
+  };
 
 
   return (
@@ -52,10 +22,10 @@ const changeCountInInputField = (event) => {
       <h1 className="heading">Hello I am Counter</h1>
 
       <div className="container">
-        <button className="btn" onClick={DecNum}>
+        <button className="btn" onClick={DncNum}>
           -
         </button>
-        <input type= "number" className= "heading1" value={count} onChange={changeCountInInputField}/>
+        <input type="number" className="heading1" value={count}/>
         <button className="btn1" onClick={IncNum}>
           +
         </button>
