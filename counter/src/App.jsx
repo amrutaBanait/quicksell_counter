@@ -1,11 +1,10 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import "./App.css";
-import CounterValue from "./components/CounterValue";
+
 
 const App = () => {
-  const [loading, setloading] = useState(false);
-
+ 
   let [count, setCount] = useState(0);
 
   const IncNum = () => {
@@ -30,7 +29,7 @@ const App = () => {
           +
         </button>
       </div>
-     <CounterValue count= {count}/>
+     
     </>
   );
 };
