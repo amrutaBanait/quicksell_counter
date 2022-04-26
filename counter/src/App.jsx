@@ -23,50 +23,39 @@ const App = () => {
     getcount();
   }, []);
 
+const changeCountInInputField = (event) => {
+  const currValue = parseInt(event.target.value);
+  if(!isNaN(currValue)){
+    setCount(currValue);
+  }
 
-  const IncNum = async () => {
-    fetch(
-      "https://interview-8e4c5-default-rtdb.firebaseio.com/front-end.json",
-      {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: count + 1,
-      }
-    )
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => setCount(data));
-  };
+  console.log(event.target.value);
+  
 
-  const DncNum = async () => {
-    fetch(
-      "https://interview-8e4c5-default-rtdb.firebaseio.com/front-end.json",
-      {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: count - 1,
-      }
-    )
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => setCount(data));
-  };
+
+  
+ 
+};
+
+  const IncNum = (event)=>{
+    setCount(event.target.valuet+1);
+
+  }
+
+  const DecNum = ()=>{
+    setCount(count-1);
+  }
+
 
   return (
    <>
       <h1 className="heading">Hello I am Counter</h1>
 
       <div className="container">
-        <button className="btn" onClick={DncNum}>
+        <button className="btn" onClick={DecNum}>
           -
         </button>
-        <h1 className="heading1"> {count} </h1>
+        <input type= "number" className= "heading1" value={count} onChange={changeCountInInputField}/>
         <button className="btn1" onClick={IncNum}>
           +
         </button>
